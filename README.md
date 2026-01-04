@@ -13,37 +13,51 @@ Unlike traditional linear pipelines, DocuMind employs a "Neural Node" architectu
 
 ## Neural Architecture
 
-The system operates via a high-speed inter-agent protocol:
+The system operates via a "Hub-and-Spoke" neural protocol:
 
 ```mermaid
-graph LR
-    Input((Input Node)) -->|Injects Asset| Manager{Cortex Hub}
+graph TD
+    %% Core Nodes
+    Manager{{"Cortex Hub<br/>(Orchestrator)"}}
+    Input(("Input Node<br/>(User Proxy)"))
     
-    subgraph "Perception Layer"
-    Vision["Vision Node<br/>(Azure Doc Intel)"]
+    %% Semantic Clusters
+    subgraph "Perception"
+    Vision["👁️ Vision Node<br/>(Azure Doc Intel)"]
     end
     
-    subgraph "Memory Layer"
-    Memory["Memory Node<br/>(Azure AI Search)"]
+    subgraph "Memory Bank"
+    Memory[("💾 Memory Node<br/>(Azure AI Search)")]
     end
     
-    subgraph "Cognition Layer"
-    Logic["Logic Node<br/>(Strategic Analysis)"]
+    subgraph "Reasoning Engine"
+    Logic["🧠 Logic Node<br/>(Strategic Analysis)"]
     end
     
-    Manager -->|Dispatch| Vision
-    Vision -->|Raw Structure| Manager
-    Manager -->|Dispatch| Memory
-    Memory -->|Knowledge Graph| Manager
-    Manager -->|Dispatch| Logic
-    Logic -->|Compliance Audit| Input
+    %% Data Flow
+    Input ==>|1. Injects Asset| Manager
+    Manager ==>|2. Dispatch| Vision
+    Vision -.->|3. Extraction| Manager
+    Manager ==>|4. Indexing| Memory
+    Memory -.->|5. Confirmation| Manager
+    Manager ==>|6. Audit Request| Logic
+    Logic -.->|7. Compliance Report| Input
     
-    style Input fill:#222,stroke:#0ff,stroke-width:2px,color:#fff
-    style Manager fill:#222,stroke:#f0f,stroke-width:2px,color:#fff
-    style Vision fill:#222,stroke:#0f0,stroke-width:2px,color:#fff
-    style Memory fill:#222,stroke:#00f,stroke-width:2px,color:#fff
-    style Logic fill:#222,stroke:#ff0,stroke-width:2px,color:#fff
+    %% Styling
+    classDef hub fill:#bfb,stroke:#333,stroke-width:2px,color:#000;
+    classDef nodes fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef storage fill:#ff9,stroke:#333,stroke-width:2px,color:#000;
+    
+    class Manager hub;
+    class Vision,Logic,Input nodes;
+    class Memory storage;
 ```
+
+## Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![Azure](https://img.shields.io/badge/Microsoft%20Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![AutoGen](https://img.shields.io/badge/AutoGen-Multi--Agent-orange?style=for-the-badge)
 
 ## Node Capabilities
 
