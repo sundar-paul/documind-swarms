@@ -1,10 +1,5 @@
 # DocuMind-Swarms: Cognitive Document Orchestrator
 
-![DocuMind Hero](src/hero.png)
-
-> [!IMPORTANT]
-> **Neural Link Required**: To activate the visual dashboard, you must manually upload the local `src/hero.png` file to the `src/` directory in this repository.
-
 ## System Abstract
 
 **DocuMind-Swarms** is a next-generation intelligent automation system built on **Microsoft Azure**. It fuses the perceptual capabilities of **Azure Document Intelligence** with the cognitive synthesis of **Multi-Agent Swarms**.
