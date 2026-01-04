@@ -20,15 +20,15 @@ graph LR
     Input((Input Node)) -->|Injects Asset| Manager{Cortex Hub}
     
     subgraph "Perception Layer"
-    Vision[Vision Node<br/>(Azure Doc Intel)]
+    Vision["Vision Node<br/>(Azure Doc Intel)"]
     end
     
     subgraph "Memory Layer"
-    Memory[Memory Node<br/>(Azure AI Search)]
+    Memory["Memory Node<br/>(Azure AI Search)"]
     end
     
     subgraph "Cognition Layer"
-    Logic[Logic Node<br/>(Strategic Analysis)]
+    Logic["Logic Node<br/>(Strategic Analysis)"]
     end
     
     Manager -->|Dispatch| Vision
